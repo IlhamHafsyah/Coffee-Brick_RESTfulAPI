@@ -30,6 +30,7 @@ module.exports = {
   postHistory: async (req, res) => {
     try {
       const {
+        history_id,
         invoice,
         payment_method,
         subtotal,
@@ -40,6 +41,7 @@ module.exports = {
         console.log('All data must be filled in')
       } else {
         const setData = {
+          history_id,
           invoice,
           payment_method,
           subtotal,
@@ -57,21 +59,21 @@ module.exports = {
   postDetailhistory: async (req, res) => {
     try {
       console.log(req.body)
-      // const {
-      //   product_id,
-      //   qty,
-      //   total,
-      //   history_id
-      // } = req.body
-      // const setData = {
-      //   product_id,
-      //   qty,
-      //   total,
-      //   history_id,
-      //   history_created_at: new Date()
-      // }
-      // const result = await postDetailhistoryModel(setData)
-      // return helper.response(res, 200, 'Success Post History', result)
+      const [{
+        product_id,
+        qty,
+        total,
+        history_id
+      }] = req.body
+      const setData = {
+        product_id,
+        qty,
+        total,
+        history_id,
+        // history_created_at: new Date()
+      }
+      const result = await postDetailhistoryModel(setData)
+      return helper.response(res, 200, 'Success Post Detail History', result)
     } catch (error) {
       console.log(error)
       return helper.response(res, 400, 'Bad Request', error)
