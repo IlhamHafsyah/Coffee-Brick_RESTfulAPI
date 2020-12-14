@@ -30,8 +30,12 @@ This project was built as a form of response to technological developments, espe
 Open .env file on your favorite code editor, and copy paste this code below :
 
 ```
-HOST=localhost // Database host
-USER=root // Database user
+PORT=4000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=''
+DB_NAME=coffeeshop_app
+DB_TIMEZONE=UTC
 ```
 
 ## License
